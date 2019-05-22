@@ -1,0 +1,151 @@
+---
+- hosts: webservers
+  remote_user: root
+  tasks:
+  - name: install httpd latest version
+    yum: 
+      name: httpd
+      state: latest
+  - name: write config file
+    template: 
+      src: /srv/httpd.j2
+      dest: /etc/httpd.conf
+
+- hosts: databases
+  remote_user: root
+  tasks:
+    - name: install postgresql latest version
+      yum: 
+        name: postgresql
+        state: latest
+    - name: ensure that postgresql is started
+      service: 
+        name: postgresql
+        state: started
+
+- name: Add a new windows user
+  hosts: all
+  tasks:
+    - name: Add a user
+      win_user:
+        name: rakesh
+        password: "R@ke$h12"
+        state: present
+  
+
+  tasks:
+  - name: Copy ansible inventory file to client
+    copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
+            owner=root group=root mode=0644
+
+  tasks:
+  - name: Download Tomcat
+    get_url: url=http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz dest=/opt/apache-tomcat-7.0.61.tar.gz
+
+
+  tasks:
+    - name: "Install Apache, MySQL, and PHP5"
+      apt: name={{ item }} state=present
+      with_items:
+        - apache2
+        - mysql-server
+        - python-mysqldb
+        - php5
+        - php-pear
+        - php5-mysql
+
+
+
+
+
+Please go through the below link for complete example:
+
+https://github.com/ansible/ansible-examples/tree/master/lamp_simple_rhel7
+
+
+
+Ansible is a helpful tool that allows you to create groups of machines, describe how those machines should be configured or what actions should be taken on them
+
+Ansible only needs to be installed on the control machine, or the machine from which you will be running commands. This will likely be your laptop or other computer from which you frequently access your server.
+
+
+By default, the inventory file is expected to be /etc/ansible/hosts. Create that path and file if it does not already exist.
+
+mkdir ~/Path/To/ansible
+touch ~/Path/To/ansible/hosts
+touch ~/.ansible.cfg
+
+Open ~/.ansible.cfg file and add the following lines:
+~/.ansible.cfg
+
+    [defaults]
+    inventory = ~/Path/To/ansible/hosts
+    
+    
+    
+    Ansible is mainly used for :
+1. Configuration Management.
+2. Application deployments.
+3. Service Orchestration.
+
+Ansible is free and it mainly runs on MAC, BSD and Linux platforms. It uses OpenSSH as the transport protocol. Ansible scripts, which is commonly known as “Playbooks” are written in YAML (YAML Ain’t Markup Language). Playbook is actually a set of instructions which tells Ansible to what needs to be done, when it actually connects to each machine. 
+
+1.	Controller Machine: This is where Ansible is installed and which is responsible for running the provisioning on the servers.
+2. Inventory: It contains all the information’s about the servers we are managing.
+3. Playbook: It is a set of instruction manual which tells Ansible what to do when it connects to each machine.
+4. Task: This is the one which defines a single procedure to be executed.
+5. Module: These are single scripts that will be deployed on target hosts.
+6. Role: It is a set of tasks and additional files. which is used to configure the host to the server for a certain purpose/roles.
+7. Play: Execution of a Playbook is called “Play”.
+8. Facts: This contains the information about a system ( Network Interfaces and Operating Systems )
+9. Handlers: It is used to notify service status changes.
+
+How to Install Ansible:
+•	On CentOS machines:
+
+# yum install epel-release
+# yum install ansible
+•	On Debian
+
+# apt-get install ansible
+Once it is installed, The verification can be done by the following command.
+# ansible –version
+Once we have Ansible installed, we’ll need to add the remote servers to its configuration file, located in /etc/ansible/hosts:
+Configuring Ansible Hosts :
+Open the /etc/ansible/hosts file as a root user:
+The syntax would be like as mentioned below
+[group_name]
+alias ansible_ssh_host=server_ip
+|| alias is just a name to refer to the server.
+Say, if we have 2 servers that we want to control with Ansible.
+Since Ansible communicate with client using SSH, all the servers which we need to manage should be accessible from Ansibile server.
+Assume the server’s IP address as 192.168.1.1 & 192.168.1.2. We are naming these 2 servers as “host1 & host2”.
+Then we need to add these entries to the “/etc/ansible/hosts”
+|| [servers]
+host1 ansible_ssh_host=192.168.1.1
+host2 ansible_ssh_host=192.168.1.2
+Ansible of course will attempt to associate with the remote hosts utilizing the current username thus, we have to refresh ansible that it ought to interface the servers in the gathering “servers” with the client “test”.
+•	Create a directory in the Ansible configuration structure called “group_vars”
+# mkdir /etc/ansible/group_vars
+We can create YAML formatted files for each group within this folder.
+# vi /etc/ansible/group_vars/servers
+** Note: YAML file starts with “–”
+Running playbooks
+
+We are creating a file “basic” in the /tmp directory ( host1 )
+# vi basic_playbook.yml
+– hosts: host1
+tasks:
+– name: Create file
+file:
+path: /tmp/basic
+state: touch
+To run Playbooks use the command.
+#ansible-playbook <playbook name>
+Here it is basic_playbook.yml
+
+
+    
+    
+    
+    
