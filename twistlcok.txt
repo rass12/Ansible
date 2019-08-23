@@ -1,0 +1,65 @@
+Containers:
+Lightweight, fast, disposable virtual environments 
+ App portability, maintenance and deployment. 
+ Set of processes running atop shared kernel 
+ Isolated from rest of the system (limitations) 
+Efficient way to build, ship, run, deliver apps
+
+What is Docker? 
+Lightweight, open source engine for creating, deploying containers  Provides work flow for running, building and containerizing apps.  Separates apps from where they run; enables Micro-services; scale by composition  Underlying building blocks: Linux* kernel's namespaces (isolation) + cgroups
+Components of Docker 
+ Docker Engine: Runtime for running, building Docker containers 
+ Docker Repositories(Hub): SaaS for sharing/managing images  
+ Docker Images (layers)
+
+Container Security – Key Customer Asks 1. Docker* Host Integrity   Do you trust the Docker daemon?  Do you trust the Docker host has booted with Integrity? 2. Docker Container Integrity verification  Who wrote the container image? Do you trust the image?   Did the right Image get launched? 3. Runtime Protection of containers & Enhanced Isolation  How can Intel help with runtime Integrity, Isolation? 4. Intelligent orchestration – OpenStack as singular control plane for Trusted VMs and Containers 
+ 
+ 
+
+
+
+
+
+What are the challenges? 
+Containers don’t keep themselves up to date 
+ 
+Many more containers but fewer tools for protecting them 
+ 
+Many more, and more diverse, places where your containers run 
+ 
+
+Why not existing solutions? 
+Containers are portable and minimal 
+ 
+Deployment is frictionless 
+ 
+Cramming containers full of agents and tools is antithetical to the model 
+
+What is Twistlock? 
+ 
+The first security solution built for containerized computing 
+ 
+… that secures the entire lifecycle of containerized apps… 
+ 
+… across all the environments they run in 
+ 
+A company that contributes back to the open source community
+
+Defend your containers 
+ 
+Vulnerability management, with an intelligence stream of the latest CVEs and proactive defense 
+ 
+Advanced authorization capabilities, including Kerberos support and role based access control 
+ 
+Runtime defense, monitoring container memory space, storage, and networking to detect and block anomalous behaviors
+
+Purpose built 
+ 
+Agentless 
+ 
+Runs anywhere your containers run 
+ 
+API driven for continuous integration
+
+ 
+
