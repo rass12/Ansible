@@ -1,0 +1,81 @@
+GIT:
+1.How can you see the last 5 commits?
+Git log  (It will list out all commits)
+Git log -5 (last 5 commits)
+Git log  --since=2.weeks (last 2 weeks)
+git log --follow[file]   Example: Git log –follow sample.txt
+  (commit list on specific file)
+2.How can you list out all the branches in remote repo?
+Git remote show   :list out all the branches in remote repo
+Git branch -a     : list out all branches
+Git branch  -- list out all the branches in local repo
+Git branch test  -- create a new branch with “test”
+Git branch -d test  -- Delete the test branch
+3.What are the Branching strategies used in your organization?
+
+4.Diff b/w Pull and push
+Push: This command sends the branch commits to your remote repository.
+Git push origin master   -- origin is default remote repo.
+Git push origin –all   -- This command pushes all branches to your remote repository.
+Pull: This command fetches and merges changes on the remote server to your working directory.
+
+5.What is Rebase?
+6.What is reset?
+7. checkout :
+Git checkout branchname -- used to switch from one branch to another
+Git checkout -b branchname -- creates a new branch and also switches to it.
+Terraform:
+Diff b/w Provider and Provisioner?
+How can you find the syntactical errors in Terraform?
+Diff b/w resource and data source?
+Diff b/w Plan and apply?
+Where you maintain .tf state in your project?
+If  you tell remote machine/s3 bucket or etc.., he asked me that where you will give that configuration in Terraform?
+Where you will maintain the credentials in terraform?
+Ansible:
+What is location of inventory file?
+How to deploy single task in a playbook to a node/machine?
+Tell me few ansible modules?
+Diff b/w task and play?
+How to create a folder and place a file with content “Hello world” using ansible modules?
+Tell me one scenario where ansible you used in your organization?
+Where you will maintain the credentials in Ansible?
+How can we use handlers in ansible?
+Where you can give permissions to sudo users?
+
+Jenkins:
+How to maintain security in Jenkins?
+What is default location of Jenkins jobs?
+How many ways you can trigger the jobs in Jenkins?
+What are the up streams and down streams for Jenkins?
+Tell me about master and slave system?
+If we have 1 master machine and 3 slave machines. How to build the particular job in my 2 slave not in 1 and 3 slaves?
+Sample groovy script..
+CI and CD process?
+Maven goals?
+Diff b/w install and deploy?
+Diff b/w package and deploy?
+What is POM file?
+Where you will maintain artifactory?
+What is Label in Jenkins?
+
+AWS:
+Write sample Cloud Formation template?
+Diff b/w IAM roles and users and groups?
+What is ECS?
+How can you create a VPC?
+What is Elastic bean stalk?
+How to deploy the CFT?
+
+
+Infy questions:
+What is NAT instance?
+Diff b/w Reserved and on demand instances?
+
+
+
+
+
+
+
+
